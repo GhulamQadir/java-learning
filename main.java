@@ -76,12 +76,29 @@ public class main {
         // System.out.println();
         // }
 
-        // 3rd pattern
-        for (int i = 5; i > 0; i--) {
-            for (int j = i; j > 0; j--) {
+        // // 3rd pattern
+        // for (int i = 5; i > 0; i--) {
+        // for (int j = i; j > 0; j--) {
+        // System.out.print("*");
+        // }
+        // System.out.println();
+        // }
+
+        // 4th pattern
+        for (int i = 2; i < 7; i++) { // upper loop
+            for (int j = 1; j <= i; j++) { // inner loop for upper loop
                 System.out.print("*");
             }
             System.out.println();
         }
+        for (int x = 7; x > 2; x--) { // lower loop
+            for (int y = 3; y <= x; y++) { // inner loop for lower loop
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // MULTIDIMENSIONAL ARRAY
+        int[][] values = { { 32, 4, 7, 9 }, { 45, 20, 100, 5 }, { 6, 8, 3, 4 } };
     }
 }
