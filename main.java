@@ -84,21 +84,66 @@ public class main {
         // System.out.println();
         // }
 
-        // 4th pattern
-        for (int i = 2; i < 7; i++) { // upper loop
-            for (int j = 1; j <= i; j++) { // inner loop for upper loop
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-        for (int x = 7; x > 2; x--) { // lower loop
-            for (int y = 3; y <= x; y++) { // inner loop for lower loop
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+        // // 4th pattern
+        // for (int i = 2; i < 7; i++) { // upper loop
+        // for (int j = 1; j <= i; j++) { // inner loop for upper loop
+        // System.out.print("*");
+        // }
+        // System.out.println();
+        // }
+        // for (int x = 7; x > 2; x--) { // lower loop
+        // for (int y = 3; y <= x; y++) { // inner loop for lower loop
+        // System.out.print("*");
+        // }
+        // System.out.println();
+        // }
 
-        // MULTIDIMENSIONAL ARRAY
-        int[][] values = { { 32, 4, 7, 9 }, { 45, 20, 100, 5 }, { 6, 8, 3, 4 } };
+        // // MULTIDIMENSIONAL ARRAY
+        // int[][] values = { { 32, 4, 7, 9 }, { 45, 20, 100, 5 }, { 6, 8, 3, 4 } };
+        // for (int i = 0; i < values.length; i++) {
+        // for (int j = 0; j < values[i].length; j++) {
+        // System.out.print(values[i][j] + "\t");
+        // }
+        // System.out.println();
+        // }
+
+        // // print transpose of the given array
+        // int[][] nums = {
+        // { 3, 2, 5 },
+        // { 7, 64, 5 },
+        // { 1, 3, 2 },
+        // { 32, 4, 54 }
+        // };
+        // for (int i = 0; i < 3; i++) {
+        // for (int j = 0; j < 4; j++) {
+        // System.out.print(nums[j][i] + "\t");
+        // }
+        // System.out.println();
+        // }
+
+        // matrices addition
+        int[][] additionOfMatrices = new int[3][3];
+        int[][] matrix1 = {
+                { 3, 2, 5 },
+                { 7, 64, 5 },
+                { 1, 3, 2 },
+        };
+        int[][] matrix2 = {
+                { 02, 12, 53 },
+                { 14, 33, 9 },
+                { 17, 80, 4 },
+        };
+
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[i].length; j++) {
+                additionOfMatrices[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        for (int x = 0; x < additionOfMatrices.length; x++) {
+            for (int y = 0; y < additionOfMatrices.length; y++) {
+                System.out.print(additionOfMatrices[x][y] + "\t");
+            }
+            System.out.println();
+        }
     }
 }
