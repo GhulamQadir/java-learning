@@ -1,10 +1,22 @@
 import java.util.*;
 import java.text.DecimalFormat;
+import java.math.*;
 
 public class main {
     public static void main(String args[]) {
         // int a = 32;
         // System.out.println(a);
+
+        // take integer as an input and print its factorial
+        System.out.print(("Enter any integer number:\t"));
+        Scanner inputNum = new Scanner(System.in);
+        int factorialNum = inputNum.nextInt();
+        inputNum.close();
+        long factorial = factorialNum;
+        for (int i = factorialNum; i > 1; i--) {
+            factorial *= (i - 1);
+        }
+        System.out.printf("Factorial of a given number is: %d \n", factorial);
 
         // // to find sum of integers in an array
         // int[] numbers = { 3, 2, 43, 55 };
@@ -121,29 +133,68 @@ public class main {
         // System.out.println();
         // }
 
-        // matrices addition
-        int[][] additionOfMatrices = new int[3][3];
-        int[][] matrix1 = {
-                { 3, 2, 5 },
-                { 7, 64, 5 },
-                { 1, 3, 2 },
-        };
-        int[][] matrix2 = {
-                { 02, 12, 53 },
-                { 14, 33, 9 },
-                { 17, 80, 4 },
-        };
+        // // matrices addition
+        // int[][] additionOfMatrices = new int[3][3];
+        // int[][] matrix1 = {
+        // { 3, 2, 5 },
+        // { 7, 64, 5 },
+        // { 1, 3, 2 },
+        // };
+        // int[][] matrix2 = {
+        // { 02, 12, 53 },
+        // { 14, 33, 9 },
+        // { 17, 80, 4 },
+        // };
 
-        for (int i = 0; i < matrix1.length; i++) {
-            for (int j = 0; j < matrix1[i].length; j++) {
-                additionOfMatrices[i][j] = matrix1[i][j] + matrix2[i][j];
-            }
-        }
-        for (int x = 0; x < additionOfMatrices.length; x++) {
-            for (int y = 0; y < additionOfMatrices.length; y++) {
-                System.out.print(additionOfMatrices[x][y] + "\t");
-            }
-            System.out.println();
-        }
+        // for (int i = 0; i < matrix1.length; i++) {
+        // for (int j = 0; j < matrix1[i].length; j++) {
+        // additionOfMatrices[i][j] = matrix1[i][j] + matrix2[i][j];
+        // }
+        // }
+        // for (int x = 0; x < additionOfMatrices.length; x++) {
+        // for (int y = 0; y < additionOfMatrices.length; y++) {
+        // System.out.print(additionOfMatrices[x][y] + "\t");
+        // }
+        // System.out.println();
+        // }
+
+        // // matrices multiplication
+        // int[][] multiplicationOfMatrices = new int[3][3];
+        // int[][] matrix1 = {
+        // { 3, 2, 5 },
+        // { 7, 64, 5 },
+        // { 1, 3, 2 },
+        // };
+        // int[][] matrix2 = {
+        // { 02, 12, 53 },
+        // { 14, 33, 9 },
+        // { 17, 80, 4 },
+        // };
+
+        // System.out.println("\nMatrix 1:");
+        // for (int i = 0; i < matrix1.length; i++) {
+        // for (int j = 0; j < matrix1[i].length; j++) {
+        // // matrix 1 before multiplication
+        // System.out.print(matrix1[i][j] + "\t");
+        // multiplicationOfMatrices[i][j] = matrix1[i][j] * matrix2[i][j];
+        // }
+        // System.out.println();
+        // }
+        // System.out.println("Matrix 2:");
+        // for (int i = 0; i < matrix2.length; i++) {
+        // for (int j = 0; j < matrix2[i].length; j++) {
+        // // matrix 2 before multiplication
+        // System.out.print(matrix2[i][j] + "\t");
+        // }
+        // System.out.println();
+        // }
+
+        // System.out.println("\nMatrices after multiplication: ");
+        // for (int i = 0; i < multiplicationOfMatrices.length; i++) {
+        // for (int j = 0; j < multiplicationOfMatrices[i].length; j++) {
+        // System.out.print(multiplicationOfMatrices[i][j] + "\t");
+        // }
+        // System.out.println();
+        // }
     }
 }
