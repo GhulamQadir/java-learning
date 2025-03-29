@@ -109,6 +109,40 @@ public class Problems {
         }
     }
 
+    public static ArrayList<Integer> fibonacciSeries(int length) {
+        ArrayList<Integer> seriesList = new ArrayList<>();
+        if (length < 1) {
+            System.out.println("Invalid length");
+        } else {
+            for (int i = 0; i < length; i++) {
+                if (i > 1) {
+                    int prevSum = seriesList.get(i - 1) + seriesList.get(i - 2);
+                    seriesList.add(prevSum);
+                } else {
+                    seriesList.add(i);
+                }
+            }
+        }
+        return seriesList;
+    }
+
+    public static void splittedSentence(String sentence) {
+        String word = "";
+        for (int i = 0; i < sentence.length(); i++) {
+            if (sentence.charAt(i) == ' ') {
+                if (word.length() > 0) {
+                    System.out.println(word);
+                }
+                word = "";
+            } else if (i == sentence.length() - 1 && sentence.charAt(i) != ' ') {
+                word += sentence.charAt(i);
+                System.out.println(word);
+                word = "";
+            } else
+                word += sentence.charAt(i);
+        }
+    }
+
     public static void main(String args[]) {
         // Scanner to take input
         Scanner sc = new Scanner(System.in);
@@ -152,11 +186,22 @@ public class Problems {
         // arithmeticOperationsOnMatrix(matrix1, matrix2, "+", "Matrix after
         // addition:");
 
-        // 7. Matrix multiplication
-        System.out.println("Matrices before multiplication");
-        print2dMatrix(matrix1, "Matrix 1=>");
-        print2dMatrix(matrix2, "Matrix 2=>");
-        arithmeticOperationsOnMatrix(matrix1, matrix2, "*", "Matrix after multiplication:");
+        // // 7. Matrix multiplication
+        // System.out.println("Matrices before multiplication");
+        // print2dMatrix(matrix1, "Matrix 1=>");
+        // print2dMatrix(matrix2, "Matrix 2=>");
+        // arithmeticOperationsOnMatrix(matrix1, matrix2, "*", "Matrix after
+        // multiplication:");
 
+        // 8. Fibonacci Series [0,1,1,2,3,5,8,13]
+        System.out.print("Enter the length of fibonacci series:\t");
+        int lengthOfSeries = sc.nextInt();
+        sc.nextLine();  // for newline character 
+        System.out.println("Fibonacci Series:\t" + fibonacciSeries(lengthOfSeries));
+
+        // 9. Split each word of sentence in new line (without using split method)
+        System.out.print("Enter any sentence:\t");
+        String sentence = sc.nextLine();
+        splittedSentence(sentence);
     }
 }
