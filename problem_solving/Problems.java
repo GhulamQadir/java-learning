@@ -143,6 +143,29 @@ public class Problems {
         }
     }
 
+    public static int findLcm(int num1, int num2) {
+        int greaterNum = 1;
+        int lcm = 0;
+        if (num1 < 1 || num2 < 1) {
+            System.out.println("Number should not be less than 1");
+        } else {
+            if (num1 >= num2) {
+                greaterNum = num1;
+            } else {
+                greaterNum = num2;
+            }
+            while (lcm == 0) {
+                if (greaterNum % num1 == 0 && greaterNum % num2 == 0) {
+                    lcm = greaterNum;
+                    return lcm;
+                } else {
+                    greaterNum++;
+                }
+            }
+        }
+        return lcm;
+    }
+
     public static void main(String args[]) {
         // Scanner to take input
         Scanner sc = new Scanner(System.in);
@@ -193,15 +216,22 @@ public class Problems {
         // arithmeticOperationsOnMatrix(matrix1, matrix2, "*", "Matrix after
         // multiplication:");
 
-        // 8. Fibonacci Series [0,1,1,2,3,5,8,13]
-        System.out.print("Enter the length of fibonacci series:\t");
-        int lengthOfSeries = sc.nextInt();
-        sc.nextLine();  // for newline character 
-        System.out.println("Fibonacci Series:\t" + fibonacciSeries(lengthOfSeries));
+        // // 8. Fibonacci Series [0,1,1,2,3,5,8,13]
+        // System.out.print("Enter the length of fibonacci series:\t");
+        // int lengthOfSeries = sc.nextInt();
+        // sc.nextLine(); // for newline character
+        // System.out.println("Fibonacci Series:\t" + fibonacciSeries(lengthOfSeries));
 
-        // 9. Split each word of sentence in new line (without using split method)
-        System.out.print("Enter any sentence:\t");
-        String sentence = sc.nextLine();
-        splittedSentence(sentence);
+        // // 9. Split each word of sentence in new line (without using split method)
+        // System.out.print("Enter any sentence:\t");
+        // String sentence = sc.nextLine();
+        // splittedSentence(sentence);
+
+        // 9. find LCM (least common multiple) of two given numbers;
+        System.out.print("Enter first number:\t");
+        int num1 = sc.nextInt();
+        System.out.print("Enter second number:\t");
+        int num2 = sc.nextInt();
+        System.out.println("Lcm of two given numbers is:\t" + findLcm(num1, num2));
     }
 }
