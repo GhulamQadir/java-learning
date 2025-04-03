@@ -166,6 +166,69 @@ public class Problems {
         return lcm;
     }
 
+    public static int findHcf(int num1, int num2) {
+        int biggerNum = 0;
+        int hcf = 0;
+
+        if (num1 < 1 || num2 < 1) {
+            System.out.println("Number should not be less than 1");
+        } else {
+            if (num1 >= num2) {
+                biggerNum = num1;
+            } else {
+                biggerNum = num2;
+            }
+            while (hcf != biggerNum) {
+                if (num1 % biggerNum == 0 && num2 % biggerNum == 0) {
+                    hcf = biggerNum;
+                    return hcf;
+                } else {
+                    biggerNum--;
+                }
+            }
+        }
+        return hcf;
+    }
+
+    // find day of the week
+    public static String findDayOfTheWeek(int dayOfTheWeek, int monthNum) {
+        if (dayOfTheWeek > 31 || monthNum > 12) {
+            return "Incorrect day or month";
+        } else {
+            String[] weekDays = { "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday" };
+            int[] daysInEachMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            int i = 0;
+            int totalDays = dayOfTheWeek;
+            while (i < (monthNum - 1)) {
+                totalDays += daysInEachMonth[i];
+                i++;
+            }
+
+            int dayNum = totalDays % 7;
+            String day = weekDays[dayNum];
+            return "Day of the week is " + day;
+        }
+    }
+
+    public static void giftVoucher() {
+        Scanner sc = new Scanner(System.in);
+        int giftVoucherAmount = 700;
+        int purchaseAmount = 0;
+        while (purchaseAmount < giftVoucherAmount) {
+            System.out.printf("You have %d rupees left to utilize this voucher\n", giftVoucherAmount - purchaseAmount);
+            System.out.print("Enter the amount of your product:\t");
+            int productAmount = sc.nextInt();
+            purchaseAmount += productAmount;
+        }
+        if (purchaseAmount > giftVoucherAmount) {
+            System.out.printf("Your purchase amount, \"%d\" is greater than voucher amount, \"%d\"", purchaseAmount,
+                    giftVoucherAmount);
+        }
+        if (purchaseAmount == giftVoucherAmount) {
+            System.out.println("You have utilized your voucher");
+        }
+    }
+
     public static void main(String args[]) {
         // Scanner to take input
         Scanner sc = new Scanner(System.in);
@@ -227,11 +290,31 @@ public class Problems {
         // String sentence = sc.nextLine();
         // splittedSentence(sentence);
 
-        // 9. find LCM (least common multiple) of two given numbers;
-        System.out.print("Enter first number:\t");
-        int num1 = sc.nextInt();
-        System.out.print("Enter second number:\t");
-        int num2 = sc.nextInt();
-        System.out.println("Lcm of two given numbers is:\t" + findLcm(num1, num2));
+        // // 9. find LCM (least common multiple) of two given numbers;
+        // System.out.print("Enter first number:\t");
+        // int num1 = sc.nextInt();
+        // System.out.print("Enter second number:\t");
+        // int num2 = sc.nextInt();
+        // System.out.println("Lcm of two given numbers is:\t" + findLcm(num1, num2));
+
+        // // 10. find HCF (highest commong factor) or GCD (greatest common divisor)
+        // System.out.print("Enter first number:\t");
+        // int num1 = sc.nextInt();
+        // System.out.print("Enter second number:\t");
+        // int num2 = sc.nextInt();
+        // System.out.println("HCF of two given numbers is:\t" + findHcf(num1, num2));
+
+        // // 11. take the month and date as input and print day of the week (only for
+        // 2025)
+        // // "first january 2025 was on Wednesday"
+        // System.out.print("Enter day of the month(In number):\t");
+        // int dayOfMonth = sc.nextInt();
+        // System.out.print("Enter number of the month(Like for March, it is 3rd
+        // month):\t");
+        // int monthNum = sc.nextInt();
+        // System.out.println(findDayOfTheWeek(dayOfMonth, monthNum));
+
+        // 12. utilize gift voucher
+        giftVoucher();
     }
 }
