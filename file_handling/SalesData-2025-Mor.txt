@@ -1,4 +1,4 @@
-﻿ItemCode        Product        Unit Price        Qty        Date        Rep ID
+﻿ItemCode        Product        Unit Price        Qty        Date        Rep ID      
 D        Product D        5        22        6/17/2019        E011
 D        Product D        5        24        6/23/2019        E011
 C        Product C        8        9        6/26/2019        E011
