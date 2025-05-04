@@ -141,6 +141,56 @@ public class FileAssignment {
         }
     }
 
+    public static void print_sales_in_descending() {
+
+        String file_path = "../SalesData-2025-Mor.txt";
+        File myFile = new File(file_path);
+        ArrayList<ArrayList<String>> sales_record = new ArrayList<>();
+        try {
+            Scanner sc = new Scanner(myFile);
+            int count = 0;
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                if (count > 0) {
+                    ArrayList<String> temp_record = new ArrayList<>();
+                    String[] record = line.split("        ");
+                    int price = Integer.parseInt(record[2]);
+                    int quantity = Integer.parseInt(record[3]);
+                    int total = quantity * price;
+                    for (String rec : record) {
+                        temp_record.add(rec);
+                    }
+                    temp_record.add(Integer.toString(total));
+                    sales_record.add(temp_record);
+                }
+                count++;
+            }
+            boolean isSwap = true;
+            while (isSwap) {
+                isSwap = false;
+                for (int i = 0; i < sales_record.size() - 1; i++) {
+                    int left = Integer.parseInt(sales_record.get(i).get(6));
+                    int right = Integer.parseInt(sales_record.get(i + 1).get(6));
+                    if (left < right) {
+                        sales_record.get(i).set(6, Integer.toString(right));
+                        sales_record.get(i + 1).set(6, Integer.toString(left));
+                        isSwap = true;
+                    }
+                }
+            }
+            System.out.println(
+                    "Item Code       Product     Unit Price      Quantity        Date        Rep Id      Total");
+            for (ArrayList<String> record : sales_record) {
+                for (String field : record) {
+                    System.out.print(field + "          ");
+                }
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String args[]) {
         // readFile();
 
@@ -152,8 +202,11 @@ public class FileAssignment {
         // // described in the line.
         // getTotalOfEachItem();
 
-        // display monthwise sales
-        display_MonthWise_Sales();
+        // // display monthwise sales
+        // display_MonthWise_Sales();
 
+        // code that prints all the record sorted in descending order with respect to
+        // sales amount
+        print_sales_in_descending();
     }
 }
