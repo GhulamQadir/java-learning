@@ -1,9 +1,10 @@
 package advance_algorithms;
 
+// [1,2,4,7,5,8,9]
 import java.util.Arrays;
 
 public class Algorithms {
-    public static void inPlaceSortingAlgo(int[] num_arr) {
+    public static void selection_sort(int[] num_arr) {
         for (int i = 0; i < num_arr.length - 1; i++) {
             int smallestNum = num_arr[i];
             int placeToSwap = i;
@@ -19,8 +20,23 @@ public class Algorithms {
         System.out.println("Sorted Array:\t" + Arrays.toString(num_arr));
     }
 
+    // insertion sort
+    public static void insertion_sort(int[] num_arr) {
+        for (int i = 1; i < num_arr.length; i++) {
+            int prev = i - 1;
+            int current = num_arr[i];
+
+            while (prev >= 0 && num_arr[prev] < current) {
+                num_arr[prev + 1] = num_arr[prev];
+                prev--;
+            }
+            num_arr[prev + 1] = current;
+        }
+        System.out.println(Arrays.toString(num_arr));
+    }
+
     // bubble sorting algorithm
-    public static int[] bubbleSortingAlgo(int[] num_arr) {
+    public static int[] bubble_sort(int[] num_arr) {
         boolean sorted = false;
         while (!sorted) {
             sorted = true;
@@ -37,7 +53,7 @@ public class Algorithms {
     }
 
     public static void binarySearch(int[] num_arr) {
-        int[] sorted_arr = bubbleSortingAlgo(num_arr);
+        int[] sorted_arr = bubble_sort(num_arr);
         System.out.println(Arrays.toString(sorted_arr));
         boolean elementFound = false;
         int num_to_find = 9;
@@ -61,12 +77,16 @@ public class Algorithms {
 
     public static void main(String args[]) {
         int[] num_arr = { 54, 78, 98, 43, 22, 41, 7, 9, 4, 25, 59, 723 };
-        // in-place sorting OR Selection sorting
-        inPlaceSortingAlgo(num_arr);
 
-        // // bubble sorting
-        // int[] bubble_sorted_array = bubbleSortingAlgo(num_arr);
+        // // Selection Sort
+        // selection_sort(num_arr);
+
+        // // bubble Sort
+        // int[] bubble_sorted_array = bubble_sort(num_arr);
         // System.out.println("Sorted Array: " + Arrays.toString(bubble_sorted_array));
+
+        // Insertion Sort (for descending order)
+        insertion_sort(num_arr);
 
         // // binary searching (Rule: Array have to be sorted)
         // binarySearch(num_arr);
